@@ -33,7 +33,7 @@ function Tabeltailwind() {
                                     <td className="border border-gray-300 m-8">{item.username}</td>
                                 </tr>
                             ))}
-                        </tbody> 
+                        </tbody>
                     </table>
                 </div>
 
