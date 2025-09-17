@@ -7,10 +7,12 @@ import Loading from "../pages/Loding"
 
 const App = () => {
   return (
-<Routes>
-  
-  <Route path="/" element={<LandingPage/>}/>
-</Routes>
+    <Routes>
+      <Route path="/" element={<Loading />} />
+      <Route path="/V" element={<Register />} />
+
+
+            </Routes>
 
   )
 }
