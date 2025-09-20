@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -9,14 +10,30 @@ function Register() {
     pw: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register data", formData);
-    alert("okeyyy😻🥵🤬");
+    setLoading(true);
+
+    try {
+      const response = await axios.post
+        ('http://localhost:5000/users', formData);
+      console.log('Register success:', response.data);
+
+      alert('Pendaftaran berhasil!');
+      navigate('/login'); // setelah daftar, arahkan ke login
+    } catch (error) {
+      console.error('Error register:', error);
+      alert('Terjadi kesalahan saat mendaftar.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

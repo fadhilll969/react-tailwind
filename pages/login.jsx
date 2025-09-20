@@ -1,22 +1,33 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Login data:', formData);
-        alert('Simulasi Login Berhasil');
-    };
+    const handleSubmit = async (e) => {
+       e.preventDefault();
 
+       try {
+        const res = await axios.get("https://localhost:5000/users",{
+            params:{email: formData.email, password: formData.password},
+        });
+
+        if (res,data,length > 0) {
+            alert("login sukses!");
+            navigate("/tabeldata");
+        } else {
+            alert("Email atau pasword anda salah!")
+        }
+       }
+    
     return (
         <div className="flex item-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
@@ -66,6 +77,6 @@ function Login() {
             </div>
         </div>
     );
-}
+    }
 
 export default Login;
