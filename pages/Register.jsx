@@ -7,7 +7,7 @@ function Register() {
     name: "",
     email: "",
     asklh: "",
-    pw: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ function Register() {
       console.log('Register success:', response.data);
 
       alert('Pendaftaran berhasil!');
-      navigate('/login'); // setelah daftar, arahkan ke login
+      navigate('/login');
     } catch (error) {
       console.error('Error register:', error);
       alert('Terjadi kesalahan saat mendaftar.');
@@ -38,7 +38,7 @@ function Register() {
 
   return (
     <div className="flex item-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-100 h-120 max-w-sn mt-30">
+      <div className="bg-white p-8 rounded-lg shadow-md w-100 h-120 max-w-sm mt-30">
         <h1 className="text-2x1 font-bold text-center mb-6 ">Format Pendaftaran</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
