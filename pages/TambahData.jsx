@@ -1,27 +1,54 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 function TambahData() {
     const [formData, setFormData] = useState({
-        makanan: '',
-        Paket: '',
-        Harga: '',
+        makanan: "",
+        paket: "",
+        harga: 0,
     });
+
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Tambah data:', formData);
-        alert('Penambahan data berhasil!');
+        setLoading(true);
+        try {
+            // kirim data ke backend
+            const response = await axios.post("http://localhost:5001/menu", formData);
+
+            console.log("Respon server:", response.data);
+            alert("Data berhasil ditambahkan!");
+
+            // Reset form
+            setFormData({
+                makanan: "",
+                paket: "",
+                harga: "",
+            });
+
+            // opsional: otomatis kembali ke tabel setelah sukses
+            navigate("/tabeldata");
+        } catch (error) {
+            console.error("Error saat menambahkan data:", error);
+            alert("Gagal menambahkan data!");
+        } finally {
+            setLoading(false);
+        }
+    };
+    const handleKembali = () => {
+        navigate("/tabeldata");
     };
 
-    const handleKembali = () => {
-        window.history.back();
-    };
 
     return (
+
         <div className="flex justify-center items-center min-h-screen bg-sky-600 bg-indigo-400">
             <form
                 onSubmit={handleSubmit}
@@ -49,10 +76,10 @@ function TambahData() {
                     </label>
                     <input
                         id="paket"
-                        name="Paket"
+                        name="paket"
                         type="text"
                         placeholder="masukan teks"
-                        value={formData.Paket}
+                        value={formData.paket}
                         onChange={handleChange}
                         className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"
                         required
@@ -61,15 +88,15 @@ function TambahData() {
                         Harga
                     </label>
                     <input
-                        id="Harga"
-                        type="text"
-                        name="Harga"
-                        value={formData.Harga}
+                        id="harga"
+                        type="number"
+                        name="harga"
+                        value={formData.harga}
                         onChange={handleChange}
                         placeholder="Masukkan harga"
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required
-                    /> 
+                    />
 
                     <div className="flex justify-between">
                         <button
@@ -79,7 +106,7 @@ function TambahData() {
                             Simpan Data
                         </button>
                         <button
-                            type="button"
+                            type="submit"
                             onClick={handleKembali}
                             className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 mt-10"
                         >
@@ -89,6 +116,7 @@ function TambahData() {
                 </div>
             </form>
         </div>
+
     );
 };
 
