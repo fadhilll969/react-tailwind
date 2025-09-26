@@ -12,100 +12,10 @@
   ],
   "menu": [
     {
-      "id": "1",
-      "makanan": "Nasi Goreng",
-      "paket": "Paket 1",
-      "harga": "15000"
-    },
-    {
-      "id": "e648",
+      "id": "e9df",
       "makanan": "fff",
       "paket": "ww",
-      "harga": "2323"
-    },
-    {
-      "id": "419c",
-      "makanan": "dd",
-      "paket": "dd",
-      "harga": "22"
-    },
-    {
-      "id": "51b4",
-      "makanan": "dd",
-      "paket": "dd",
       "harga": 0
-    },
-    {
-      "id": "8711",
-      "makanan": "pelet",
-      "paket": "konco",
-      "harga": 0
-    },
-    {
-      "id": "502a",
-      "makanan": "pelet",
-      "paket": "konco",
-      "harga": "775"
-    },
-    {
-      "id": "3c15",
-      "makanan": "pelet",
-      "paket": "konco",
-      "harga": 0
-    },
-    {
-      "id": "4414",
-      "makanan": "ww",
-      "paket": "ww",
-      "harga": "200"
-    },
-    {
-      "id": "adc2",
-      "makanan": "ww",
-      "paket": "ww",
-      "harga": "033"
-    },
-    {
-      "id": "c843",
-      "makanan": "gg",
-      "paket": "bg",
-      "harga": "046"
-    },
-    {
-      "id": "0648",
-      "makanan": "fff",
-      "paket": "dd",
-      "harga": "055"
-    },
-    {
-      "id": "4d19",
-      "makanan": "fff",
-      "paket": "dd",
-      "harga": "044"
-    },
-    {
-      "id": "f58d",
-      "makanan": "eee",
-      "paket": "w1e1",
-      "harga": "0242"
-    },
-    {
-      "id": "c454",
-      "makanan": "eee",
-      "paket": "w1e1",
-      "harga": "022"
-    },
-    {
-      "id": "70dd",
-      "makanan": "ee",
-      "paket": "eeee",
-      "harga": "0222"
-    },
-    {
-      "id": "dd74",
-      "makanan": "wfwf",
-      "paket": "wfwf",
-      "harga": "033"
     }
   ]
 }

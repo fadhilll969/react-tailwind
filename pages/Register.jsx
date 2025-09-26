@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 function Register() {
   const [formData, setFormData] = useState({
     name: "",
@@ -117,12 +118,15 @@ function Register() {
 
 
           <div className="flex justify-center items-center justify-between">
+       <Link to="/sidnav">
             <button
               className="bg-blue-500 hover:bg-blue-70 text-white font-bold py-2 px-7 rounded focus:outline-none focus:shadow-outline"
               type="submit"
-            >
+              >
               KIRIM
             </button>
+                </Link>
+       
 
           </div>
         </form>

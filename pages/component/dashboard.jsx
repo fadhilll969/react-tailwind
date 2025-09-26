@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidnav from "./Sidnav";
 
@@ -20,20 +20,20 @@ function Dashboard() {
         e.preventDefault();
         setLoading(true);
         try {
-            // kirim data ke backend
+           
             const response = await axios.post("http://localhost:5001/menu", formData);
 
             console.log("Respon server:", response.data);
             alert("Data berhasil ditambahkan!");
 
-            // Reset form
+           
             setFormData({
                 makanan: "",
                 paket: "",
                 harga: "",
             });
 
-            // opsional: otomatis kembali ke tabel setelah sukses
+           
             navigate("/tabeldata");
         } catch (error) {
             console.error("Error saat menambahkan data:", error);
@@ -104,15 +104,18 @@ function Dashboard() {
                                 type="submit"
                                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-10"
                             >
-                                Simpan Data
+                                Simpan 
                             </button>
+                            <Link to="mbud">
                             <button
                                 type="submit"
                                 onClick={handleKembali}
                                 className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 mt-10"
-                            >
+                                >
                                 Kembali
                             </button>
+                                    </Link>
+                               
                         </div>
                     </div>
                 </form>

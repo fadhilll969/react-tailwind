@@ -16,8 +16,10 @@ const App = () => {
    
      <Route path="/ff" element={<TambahData/>} /> 
      <Route path="/tabeldata" element={<Tabeldata/>} /> 
-     <Route path="/tabel" element={<EditData/>} /> 
+     <Route path="/mbud" element={<Register/>} /> 
      <Route path="/dashboard" element={<Dashboard/>} /> 
+     <Route path="/sidnav" element={<Sidnav/>} /> 
+
     </Routes>
 
   )

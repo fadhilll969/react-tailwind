@@ -1,91 +1,61 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Sidnav from "./component/Sidnav";
 
 function Tabeldata() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const Navigate = useNavigate();
 
   useEffect(() => {
+
+
+
     const fetchData = async () => {
+
       try {
         const res = await axios.get("http://localhost:5000/menu");
         setData(res.data);
       } catch (err) {
-        console.error("Gagal mengambil data:", err);
-      } finally {
-        setLoading(false);
+        console.error("Gagal ambil data:", err);
       }
     };
-
     fetchData();
   }, []);
-
-  const handleDelete = async (id) => {
-    const konfirmasi = window.confirm("Yakin ingin menghapus data ini?");
-    if (!konfirmasi) return;
-
-    try {
-      await axios.delete(`http://localhost:5000/menu/${id}`);
-      alert("Data berhasil dihapus");
-      setData((prev) => prev.filter((item) => item.id !== id));
-    } catch (err) {
-      console.error("Gagal menghapus data:", err);
-      alert("Gagal menghapus data");
-    }
-  };
 
 
   return (
     <>
       <Sidnav />
-      <div className="mt-10 m-10 p-5">
-        <div className="flex justify-center">
-          <h1>test</h1>  
-        </div>
-        <div className="flex justify-end p-8 mr-14">
-          <button
-            onClick={() => Navigate("/tambah")}
-            className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
-          >
-            tambah
-          </button>
-        </div>
+      <div className="p-6 mt-16">
+        <h2 className="flex justify-center text-xl font-bold mb-4">Data Menu</h2>
 
-        <table className="table-auto w-full border border-gray-300">
-          <thead className="bg-gray-200">
-            <tr>
-              <th className="px-1 py-2 border">No</th>
-              <th className="px-2 py-2 border">Makanan</th>
-              <th className="px-2 py-2 border">Paket</th>
-              <th className="px-2 py-2 border">Harga</th>
-              <th className="px-2 py-2 border">Aksi</th>
+        <table className="border-collapse border border-gray-400 w-full">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-400 px-4 py-2">makanan</th>
+              <th className="border border-gray-400 px-4 py-2">paket</th>
+              <th className="border border-gray-400 px-4 py-2">Harga</th>
             </tr>
           </thead>
           <tbody>
-            {data.length > 0 ? (
-              data.map((item, index) => (
-                <tr key={item.id} className="hover:bg-gray-100">
-                  <td className="px-4 py-2 border text-center">{index + 1}</td>
-                  <td className="px-4 py-2 border">{item.makanan}</td>
-                  <td className="px-4 py-2 border">{item.paket}</td>
-                  <td className="px-4 py-2 border">{item.harga}</td>
-                  <td className="px-4 py-2 border text-center">
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr className="border" >
-
-                <td   className="flex justify-end text-center justify-between py-4" >
-                  Tidak ada data tersedia
-                </td>
+            {data.map((item, index) => (
+              <tr key={index} className="text-center">
+                <td className="border border-gray-400 px-4 py-2">{item.makanan}</td>
+                <td className="border border-gray-400 px-4 py-2">{item.paket}</td>
+                <td className="border border-gray-400 px-4 py-2">{item.harga}</td>
               </tr>
-            )}
+            ))}
           </tbody>
         </table>
+
+        <div className="flex justify-end mt-10 ">
+          <Link
+            to="/dashboard"
+            className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Kembali
+          </Link>
+        </div>
       </div>
     </>
   );
