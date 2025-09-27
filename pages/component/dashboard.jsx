@@ -20,20 +20,18 @@ function Dashboard() {
         e.preventDefault();
         setLoading(true);
         try {
-           
+
             const response = await axios.post("http://localhost:5001/menu", formData);
 
             console.log("Respon server:", response.data);
             alert("Data berhasil ditambahkan!");
 
-           
+
             setFormData({
                 makanan: "",
                 paket: "",
                 harga: "",
             });
-
-           
             navigate("/tabeldata");
         } catch (error) {
             console.error("Error saat menambahkan data:", error);
@@ -43,7 +41,7 @@ function Dashboard() {
         }
     };
     const handleKembali = () => {
-        navigate("/tabeldata");
+        navigate("/sidnav");
     };
 
 
@@ -53,11 +51,10 @@ function Dashboard() {
             <div className="flex justify-center items-center min-h-screen bg-sky-600 bg-indigo-400">
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white p-12 rounded-md shadow-md w-96"
+                    className="bg-white  p-12 rounded-md shadow-md w-96"
                 >
-                    <div className="">
+                    <div className="bg-white">
                         <h2 className="text-center font-bold mb-4 text-lg">Tambah Teks</h2>
-
                         <label className="block mb-2 font-semibold" htmlFor="makanan">
                             Makanan
                         </label>
@@ -71,7 +68,6 @@ function Dashboard() {
                             className="border border-gray-300 rounded px-3 py-2 mb-4 w-full"
                             required
                         />
-
                         <label className="block mb-2 font-semibold" htmlFor="paket">
                             Paket
                         </label>
@@ -98,24 +94,21 @@ function Dashboard() {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             required
                         />
-
                         <div className="flex justify-between">
                             <button
                                 type="submit"
                                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-10"
                             >
-                                Simpan 
+                                Simpan
                             </button>
-                            <Link to="mbud">
+
                             <button
                                 type="submit"
                                 onClick={handleKembali}
                                 className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 mt-10"
-                                >
+                            >
                                 Kembali
                             </button>
-                                    </Link>
-                               
                         </div>
                     </div>
                 </form>

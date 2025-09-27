@@ -8,6 +8,42 @@
       "pw": "",
       "sklh": "test",
       "password": "fdgcfg"
+    },
+    {
+      "id": "797c",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "927e",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "swsw"
+    },
+    {
+      "id": "74c0",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "wewe"
+    },
+    {
+      "id": "dff7",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "ww"
+    },
+    {
+      "id": "5aca",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "ss"
+    },
+    {
+      "id": "bf9f",
+      "name": "test",
+      "email": "hysaiiyaa@gmail.com",
+      "password": "ww"
     }
   ],
   "menu": [
@@ -16,6 +52,24 @@
       "makanan": "fff",
       "paket": "ww",
       "harga": 0
+    },
+    {
+      "id": "1334",
+      "makanan": "222",
+      "paket": "2223",
+      "harga": 0
+    },
+    {
+      "id": "7e2c",
+      "makanan": "222",
+      "paket": "w1e1",
+      "harga": 0
+    },
+    {
+      "id": "8855",
+      "makanan": "222",
+      "paket": "w1e1",
+      "harga": "022"
     }
   ]
 }

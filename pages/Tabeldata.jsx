@@ -50,7 +50,7 @@ function Tabeldata() {
 
         <div className="flex justify-end mt-10 ">
           <Link
-            to="/dashboard"
+            to="/sidnav"
             className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Kembali
