@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidnav from "./Sidnav";
 
-function Dashboard() {
+function Editdataytta() {
     const [formData, setFormData] = useState({
-        makanan: "",
-        paket: "",
-        harga: 0,
+        nama: "",
+        email: "",
+        jurusan: "",
+        angkatan: "",
+        status: "",
     });
 
     const [loading, setLoading] = useState(false);
@@ -21,14 +23,16 @@ function Dashboard() {
         setLoading(true);
         try {
 
-            const response = await axios.post("http://localhost:5001/menu", formData);
+            const response = await axios.post("http://localhost:5001/slek", formData);
             console.log("Respon server:", response.data);
             setFormData({
-                makanan: "",
-                paket: "",
-                harga: "",
+                nama: "",
+                email: "",
+                jurusan: "",
+                angkatan: "",
+                status: "",
             });
-            navigate("/tabeldata");
+            navigate("/ntol");
         } catch (error) {
             console.error("Error saat menambahkan data:", error);
             alert("Gagal menambahkan data!");
@@ -44,52 +48,80 @@ function Dashboard() {
     return (
         <>
             <Sidnav />
-            <div className="flex justify-center items-center min-h-screen bg-sky-600 bg-indigo-400">
+            <div className="flex justify-center items-center min-h-screen ">
                 <form
                     onSubmit={handleSubmit}
-                    className="bg-white  p-12 rounded-md shadow-md w-96"
+                    className="bg-white-500  p-12 rounded-md shadow-md w-96"
                 >
                     <div className="bg-white">
                         <h2 className="text-center font-bold mb-4 text-lg">Tambah Teks</h2>
-                        <label className="block mb-2 font-semibold" htmlFor="makanan">
-                            Makanan
+                        <label className="block mb-2 font-semibold" htmlFor="nama">
+                            nama
                         </label>
                         <input
-                            id="makanan"
-                            name="makanan"
+                            id="nama"
+                            name="nama"
                             type="text"
                             placeholder="masukan teks"
-                            value={formData.makanan}
+                            value={formData.nama}
                             onChange={handleChange}
                             className="border border-gray-800 rounded px-3 py-2 mb-4 w-full"
                             required
                         />
-                        <label className="block mb-2 font-semibold" htmlFor="paket">
-                            Paket
+                        <label className="block mb-2 font-semibold" htmlFor="email">
+                            email
                         </label>
                         <input
-                            id="paket"
-                            name="paket"
+                            id="email"
+                            name="email"
                             type="text"
                             placeholder="masukan teks"
-                            value={formData.paket}
+                            value={formData.email}
                             onChange={handleChange}
                             className="border border-gray-800 rounded px-3 py-2 mb-4 w-full"
                             required
                         />
-                        <label htmlFor="Harga" className="block text-gray-700 text-sm font-bold mb-2">
-                            Harga
+                        <label className="block mb-2 font-semibold" htmlFor="jurusan">
+                            jurusan
                         </label>
                         <input
-                            id="harga"
-                            type="number"
-                            name="harga"
-                            value={formData.harga}
+                            id="jurusan"
+                            name="jurusan"
+                            type="text"
+                            placeholder="masukan teks"
+                            value={formData.jurusan}
                             onChange={handleChange}
-                            placeholder="Masukkan harga"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            className="border border-gray-800 rounded px-3 py-2 mb-4 w-full"
                             required
                         />
+
+                        <label className="block mb-2 font-semibold" htmlFor="angkatan">
+                             angkatan
+                        </label>
+                        <input
+                            id="angkatan"
+                            name="angkatan"
+                            type="text"
+                            placeholder="masukan teks"
+                            value={formData.angkatan}
+                            onChange={handleChange}
+                            className="border border-gray-800 rounded px-3 py-2 mb-4 w-full"
+                            required
+                        />
+                        <label className="block mb-2 font-semibold" htmlFor="status">
+                             status
+                        </label>
+                        <input
+                            id="status"
+                            name="status"
+                            type="text"
+                            placeholder="masukan teks"
+                            value={formData.status}
+                            onChange={handleChange}
+                            className="border border-gray-800 rounded px-3 py-2 mb-4 w-full"
+                            required
+                        />
+
                         <div className="flex justify-between">
                             <button
                                 type="submit"
@@ -113,4 +145,4 @@ function Dashboard() {
     );
 };
 
-export default Dashboard;
+export default Editdataytta;

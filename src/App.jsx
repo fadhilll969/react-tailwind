@@ -7,6 +7,9 @@ import TambahData from "../pages/Tambahdata"
 import EditData from "../pages/Editdata"
 import Sidnav from "../pages/component/Sidnav"
 import Dashboard from "../pages/component/dashboard"
+import Profile from "../pages/component/Profile"
+import Editdataytta from "../pages/component/EditDataytta"
+import TabelYtta from "../pages/component/TabelYtta"
 
 
 const App = () => {
@@ -18,6 +21,9 @@ const App = () => {
       <Route path="/mbud" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/sidnav" element={<Sidnav />} />
+      <Route path="/profil" element={<Profile />} />
+      <Route path="/test" element={<Editdataytta />} />
+      <Route path="/ntol" element={<TabelYtta />} />
 
     </Routes>
 

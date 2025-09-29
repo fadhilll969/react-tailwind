@@ -26,8 +26,8 @@ function Tabeldata() {
   return (
     <>
       <Sidnav />
-      <div className="p-6 mt-16">
-        <h2 className="flex justify-center text-xl font-bold mb-4">Data Menu</h2>
+      <div className="p-6 mt-3 ml-60">
+        <h2 className=" text-xl font-bold mb-5 ">Data Menu</h2>
 
         <table className="border-collapse border border-gray-400 w-full">
           <thead>
@@ -50,7 +50,7 @@ function Tabeldata() {
 
         <div className="flex justify-end mt-10 ">
           <Link
-            to="/sidnav"
+            to="/profil"
             className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Kembali
