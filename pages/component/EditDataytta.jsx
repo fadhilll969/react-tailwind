@@ -41,7 +41,7 @@ function Editdataytta() {
         }
     };
     const handleKembali = () => {
-        navigate("/profil");
+        navigate("/ntol");
     };
 
 

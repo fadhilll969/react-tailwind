@@ -21,6 +21,14 @@ function Tabeldata() {
     };
     fetchData();
   }, []);
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/menu/${id}`);
+      setData(data.filter(item => item.id !== id));
+    } catch (error) {
+      console.error("Gagal menghapus data:", error);
+    }
+  };
 
 
   return (
@@ -32,17 +40,28 @@ function Tabeldata() {
         <table className="border-collapse border border-gray-400 w-full">
           <thead>
             <tr className="bg-gray-200">
+                <th className="border border-gray-400 px-4 py-2">no</th>
               <th className="border border-gray-400 px-4 py-2">makanan</th>
               <th className="border border-gray-400 px-4 py-2">paket</th>
               <th className="border border-gray-400 px-4 py-2">Harga</th>
+              <th className="border border-gray-400 px-4 py-2">mbud</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item, index) => (
               <tr key={index} className="text-center">
+                 <td className="border border-gray-400 px-4 py-2">{index + 1}</td>
                 <td className="border border-gray-400 px-4 py-2">{item.makanan}</td>
                 <td className="border border-gray-400 px-4 py-2">{item.paket}</td>
                 <td className="border border-gray-400 px-4 py-2">{item.harga}</td>
+                <td className="border border-gray-400 px-4 py-2">
+                  <button
+                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    Hapus
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -50,7 +69,7 @@ function Tabeldata() {
 
         <div className="flex justify-end mt-10 ">
           <Link
-            to="/profil"
+            to="/dashboard"
             className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Kembali

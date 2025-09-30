@@ -34,7 +34,7 @@ function Register() {
       });
 
 
-      navigate('/sidnav');
+      navigate('/profil');
     } catch (error) {
       console.error('Error register:', error);
 

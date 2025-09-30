@@ -4,6 +4,7 @@ function Sidnav() {
     const [open, setOpen] = useState(false);
     return (
 
+
         <div className="">
              
          
@@ -20,10 +21,11 @@ function Sidnav() {
                         <a href="/ntol" className="block py-2 px-3 rounded hover:bg-blue-600 border">ntol</a>
                         
                     </div>
-                    <a href="/mbud" className="mt-90 block py-2 px-3 rounded hover:bg-blue-600 border">kep</a>
+                    <a href="/mbud" className="mt-90 block py-2 px-3 rounded hover:bg-blue-600 border">gg</a>
                 </nav>
             </div>
         </div>
+            
     )
 }
 
